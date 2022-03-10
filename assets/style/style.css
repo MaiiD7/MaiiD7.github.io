@@ -193,7 +193,7 @@ textarea:focus {
 }
 
 input[type="submit"] {
-  size: auto;
+  color: black;
   background: none;
   font-family: "Source Sans Pro", sans-serif;
   cursor: pointer;
