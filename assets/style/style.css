@@ -299,4 +299,93 @@ i {
   i {
     font-size: 0.7em;
   }
+
+  input[type="submit"],
+  .button a {
+    color: black;
+    background: none;
+    font-family: "Source Sans Pro", sans-serif;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.5em;
+    border: solid 1px #ccc;
+    border-radius: 50px;
+    transition: 0.3s;
+  }
+}
+
+@media screen and (max-height: 560px) and (min-width: 930px) {
+  #left,
+  #right,
+  #img-left,
+  #img-right {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-height: 560px) and (max-width: 930px) {
+  #left,
+  #right {
+    height: 50vh;
+  }
+
+  h1 {
+    font-size: 3em;
+    padding: 5px 0;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    padding: 5px 0;
+  }
+
+  p {
+    font-size: 0.8em;
+    margin-bottom: 0;
+    padding: 5px 0;
+  }
+
+  li,
+  li a {
+    height: 30px;
+    width: 30px;
+  }
+
+  i {
+    font-size: 0.7em;
+  }
+
+  input[type="submit"],
+  .button a {
+    color: black;
+    background: none;
+    font-family: "Source Sans Pro", sans-serif;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.5em;
+    border: solid 1px #ccc;
+    border-radius: 50px;
+    transition: 0.3s;
+  }
+}
+
+@media screen and (max-height: 280px) {
+  input[type="submit"],
+  .button a {
+    color: black;
+    background: none;
+    font-family: "Source Sans Pro", sans-serif;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.5em;
+    border: solid 1px #ccc;
+    border-radius: 50px;
+    transition: 0.3s;
+  }
 }
