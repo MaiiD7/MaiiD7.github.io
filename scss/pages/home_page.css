@@ -725,8 +725,8 @@ a {
   background: linear-gradient(0deg, #9356dc 0%, #ff79da 100%);
   -webkit-box-shadow: 0px 12px 15px -9px rgba(0, 0, 0, 0.459);
           box-shadow: 0px 12px 15px -9px rgba(0, 0, 0, 0.459);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .btn a {
@@ -785,8 +785,8 @@ a {
   position: relative;
   font-weight: 500;
   cursor: pointer;
-  -webkit-transition: 0.2s ease-in;
-  transition: 0.2s ease-in;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .step__icon {
@@ -1055,8 +1055,8 @@ a {
   border-radius: 20px;
   -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
-  -webkit-transition: ease-in 0.2s;
-  transition: ease-in 0.2s;
+  -webkit-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
 }
 
 .restaurants-container a:hover {
