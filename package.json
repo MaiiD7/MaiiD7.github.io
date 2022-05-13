@@ -1,0 +1,19 @@
+{
+  "name": "ohmyfood",
+  "version": "1.0.0",
+  "description": "## OpenClassrooms Project 3",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./scss/pages/home_page.scss:./assets/css/home_page.css ./scss/pages/restaurant_page.scss:./assets/css/restaurant_page.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaiiD7/Ohmyfood.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaiiD7/Ohmyfood/issues"
+  },
+  "homepage": "https://github.com/MaiiD7/Ohmyfood#readme"
+}
