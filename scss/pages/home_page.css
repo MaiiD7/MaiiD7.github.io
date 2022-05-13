@@ -1242,6 +1242,19 @@ a {
   }
 }
 
+@media screen and (min-width: 1400px) {
+  .heart {
+    position: absolute;
+    cursor: pointer;
+    top: 13%;
+    right: 15%;
+    font-size: 22px;
+    color: white;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+    color: #f0eded;
+  }
+}
+
 .footer {
   height: 200px;
   background-color: #3f3a3a;

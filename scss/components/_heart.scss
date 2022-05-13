@@ -29,3 +29,10 @@
     color: rgb(240, 237, 237);
   }
 }
+
+@media screen and (min-width: 1400px) {
+  .heart {
+    @include heart(13%, 15%);
+    color: rgb(240, 237, 237);
+  }
+}
