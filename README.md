@@ -2,4 +2,4 @@
 
 ## OpenClassrooms Project 3
 
-Responsive integration from models, using html and css animations and sass
+Responsive integration from models, using html, css animations and sass
