@@ -1,0 +1,20 @@
+// All the style for the home page, mostly imported
+
+@import "../utils/settings";
+@import "../utils/mixins";
+@import "../utils/variables";
+@import "../utils/animations";
+@import "../components/loader";
+@import "../components/scrollbar";
+@import "../components/home_header";
+@import "../components/button";
+@import "../components/steps-card";
+@import "../components/restaurant-card";
+@import "../components/heart";
+@import "../components/footer";
+
+// When loading : prevent the user from scrolling
+
+body {
+  animation: scrolling 6s;
+}

@@ -1,0 +1,31 @@
+@import "../utils/variables";
+
+// Style for all the buttons
+
+.btn {
+  border: none;
+  border-radius: 25px;
+  width: 225px;
+  background: linear-gradient(
+    0deg,
+    rgba(147, 86, 220, 1) 0%,
+    rgba(255, 121, 218, 1) 100%
+  );
+  box-shadow: 0px 12px 15px -9px rgba(0, 0, 0, 0.459);
+  transition: 0.3s;
+
+  a {
+    display: block;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+  }
+
+  &:hover {
+    opacity: 0.85;
+    box-shadow: 0px 12px 15px -9px rgba(0, 0, 0, 0.685);
+  }
+}
