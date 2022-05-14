@@ -31,7 +31,7 @@
       width: 8%;
       bottom: 0;
       border-bottom: 3px rgba(99, 221, 195, 0.699) solid;
-    }    
+    }
   }
 }
 
@@ -42,6 +42,7 @@
 }
 
 .course-card {
+  overflow: hidden;
   background-color: white;
   width: 100%;
   margin: 8px;
@@ -53,13 +54,16 @@
   .info-container {
     width: 100%;
     position: relative;
+    transition: 0.8s ease-in-out;
     h6 {
       font-size: 18px;
       padding: 4px 0;
+      transition: 0.8s ease-in-out;
     }
     p {
       width: 100%;
       font-size: 14px;
+      transition: 0.8s ease-in-out;
     }
     span {
       position: absolute;
@@ -68,39 +72,52 @@
       font-weight: 700;
     }
   }
-  
-  &:nth-child(2){
-    animation-delay:0.3s ;
+  &:nth-child(2) {
+    animation-delay: 0.3s;
   }
-  &:nth-child(3){
-    animation-delay:0.6s ;
+  &:nth-child(3) {
+    animation-delay: 0.6s;
   }
 }
 
-.course-card:hover{
-  overflow: hidden;
-  .info-container, p, h6 {
-    animation: tight forwards 3s ease-in-out;
+.selected {
+  position: absolute;
+  @include flex-centered;
+  right: 0;
+  top: 0;
+  border-radius: 0 15px 15px 0;
+  height: 100%;
+  width: 18%;
+  background-color: rgba(99, 221, 195, 0.918);
+  transform: translateX(100%);
+  transition: 0.8s ease-in-out;
+  &::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 25px;
+    color: white;
+    content: "\f058";
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    transition: 0.8s ease-in-out;
   }
+}
+
+.course-card:hover {
+  .info-container,
+  p,
+  h6 {
+    width: 82%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .selected {
-    position: absolute;
-    right: 0;
-    top: 0; 
-    border-radius: 0 15px 15px 0;
-    height: 100%;
-    width: 18%;
-    background-color: rgba(99, 221, 195, 0.699);
-    animation: slide 3s ease-in-out forwards;
+    transform: translateX(0%);
     &::after {
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      font-size: 25px;
-      color: white;
-      content: "\f058";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      animation: rotate 3s ease-in-out forwards;
+      transform: rotate(-720deg);
     }
   }
 }
@@ -114,25 +131,25 @@ button {
 // for tablets
 
 @media screen and (min-width: 760px) {
-    .course-section {
-      padding: 0 10%;
-      &__heading {
-        margin: auto;
-        width: fit-content;
-        border-bottom: 3px rgba(99, 221, 195, 0.699) solid;
-        &:before {
-          content: none;
-        }
+  .course-section {
+    padding: 0 10%;
+    &__heading {
+      margin: auto;
+      width: fit-content;
+      border-bottom: 3px rgba(99, 221, 195, 0.699) solid;
+      &:before {
+        content: none;
       }
     }
-    .course-card {
-      width: 80%;
-    }
+  }
+  .course-card {
+    width: 80%;
+  }
 }
 
 // for desktop
 
-@media screen and (min-width: 1400px){
+@media screen and (min-width: 1400px) {
   .menu-container {
     display: flex;
   }
