@@ -1,8 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { ThemeProvider } from 'styled-components';
+import Login from './pages/Login';
 import DashBoard from './pages/Dashboard';
 
 const theme = {
@@ -22,8 +23,8 @@ root.render(
       <ThemeProvider theme={theme}>
         <Routes>
           {/* Add Login page and parameters to dashboard route later */}
-          {/* <Route path='/' element={<Login />} /> */}
-          <Route path='/' element={<DashBoard />} />
+          <Route path='/' element={<Login />} />
+          <Route path='/dashboard/:userId' element={<DashBoard />} />
         </Routes>
       </ThemeProvider>
     </Router>

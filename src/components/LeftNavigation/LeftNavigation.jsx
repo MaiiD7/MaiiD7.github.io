@@ -12,7 +12,7 @@ const LeftBar = styled.div`
   gap: 15px;
   margin: 0px;
   background-color: #020203;
-  height: calc(100% - 60px);
+  height: 100%;
   width: 90px;
   position: relative;
 `
