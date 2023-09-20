@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Header from "../Header/Header";
 import MainSection from "../MainSection/MainSection";
+import { data } from "../../assets/mockedData";
 
 const MainContainer = styled.div`
   width: 100%;
@@ -8,11 +9,13 @@ const MainContainer = styled.div`
   padding: 60px 90px;
 `
 
-const Main = () => {
+const Main = (props) => {
+  const { userId } = props;
+  const userData = data[`user${userId}`];
 
   return (
     <MainContainer>
-      <Header/>
+      <Header userData={userData}/>
       <MainSection/>
     </MainContainer>
   )

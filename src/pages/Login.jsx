@@ -2,8 +2,7 @@ import styled from "styled-components";
 import logo from "../assets/logo.png";
 import maleUser from "../assets/maleUser.png";
 import femaleUser from "../assets/femaleUser.png";
-import user12 from "../assets/mockedData/user12.json";
-import user18 from "../assets/mockedData/user18.json";
+import { data } from "../assets/mockedData";
 import { Link } from "react-router-dom";
 
 const LoginContainer = styled.div`
@@ -26,7 +25,7 @@ const Users = styled.div`
   gap: 100px;
 `
 
-const UserCard = styled.a`
+const UserCard = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,11 +46,11 @@ const UserName = styled.p`
 
 const Login = () => {
 
-  const femaleName = `${user18.data.userInfos.firstName} ${user18.data.userInfos.lastName}`
-  const femaleId = user18.data.id
+  const femaleName = `${data.user18.userInfos.firstName} ${data.user18.userInfos.lastName}`
+  const femaleId = data.user18.id
 
-  const maleName = `${user12.data.userInfos.firstName} ${user12.data.userInfos.lastName}`
-  const maleId = user12.data.id
+  const maleName = `${data.user12.userInfos.firstName} ${data.user12.userInfos.lastName}`
+  const maleId = data.user12.id
 
   return (
     <LoginContainer>
@@ -71,7 +70,6 @@ const Login = () => {
             <UserName>{maleName}</UserName>
           </UserCard>
         </Link>
-        
       </Users>
     </LoginContainer>
       

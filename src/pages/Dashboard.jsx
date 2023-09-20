@@ -4,16 +4,15 @@ import TopNavigation from "../components/TopNavigation/TopNavigation";
 import Main from "../components/Main/Main";
 
 const DashBoard = () => {
-  // const id = useParams().userId;
+  const id = useParams().userId;
 
   return (
     <>
       <TopNavigation/>
       <div style={{display: 'flex', width: '100%', height: 'calc(100% - 60px)'}}>
         <LeftNavigation/>
-        <Main/>
+        <Main userId={id}/>
       </div>
-      
     </>
       
   )
