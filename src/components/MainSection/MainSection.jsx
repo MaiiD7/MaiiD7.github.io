@@ -7,9 +7,8 @@ import ScoreChart from "../ScoreChart/ScoreChart";
 
 const Container = styled.div`
   width: 100%;
-  height: calc(100% - 150px);
-  padding: 10px 0px;
-  border: 2px solid red;
+  height: calc(100% - 110px);
+  padding: 10px 0px; 
   display: flex;
   justify-content: space-between;
 `
@@ -19,7 +18,7 @@ const MainChartsContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  width: 70%;
+  width: 72%;
   border: 2px solid green;
 `
 
@@ -37,8 +36,12 @@ const SmallChartsContainer = styled.div`
   border: 2px solid orange;
 `
 
-const MainSection = () => (
-  <Container>
+const MainSection = (props) => {
+
+  const { userKeyData } = props;
+
+  return (
+    <Container>
     <MainChartsContainer>
       <BarChart/>
       <ChartsContainer>
@@ -53,8 +56,10 @@ const MainSection = () => (
         </SmallChartsContainer>
       </ChartsContainer>
     </MainChartsContainer>
-    <KeyData/>
+    <KeyData userKeyData={userKeyData} />
   </Container>
-)
+  )
+  
+}
 
 export default MainSection

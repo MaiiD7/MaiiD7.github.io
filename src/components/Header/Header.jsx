@@ -6,14 +6,13 @@ const Container = styled.div`
 `
 
 const Header = (props) => {
-  const { userData } = props;
-  console.log(userData);
+  const { firstName } = props;
 
   return (
     <Container>
       <h2 style={{display: 'flex', gap: '15px', fontSize: '42px', fontWeight: 500, lineHeight: '0px', margin: '0px'}}>
         <p>Bonjour</p>
-        <p style={{color: 'red'}}>{userData.userInfos.firstName}</p>
+        <p style={{color: 'red'}}>{firstName}</p>
       </h2>
       <p style={{lineHeight: '0px'}}>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
     </Container>

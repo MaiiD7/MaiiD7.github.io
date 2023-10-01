@@ -6,17 +6,16 @@ import { data } from "../../assets/mockedData";
 const MainContainer = styled.div`
   width: 100%;
   height: calc(100% - 120px);
-  padding: 60px 90px;
+  padding: 30px 60px;
 `
 
 const Main = (props) => {
-  const { userId } = props;
-  const userData = data[`user${userId}`];
+  const { firstName, userKeyData } = props;
 
   return (
     <MainContainer>
-      <Header userData={userData}/>
-      <MainSection/>
+      <Header firstName={firstName} userKeyData={userKeyData}/>
+      <MainSection userKeyData={userKeyData}/>
     </MainContainer>
   )
 }

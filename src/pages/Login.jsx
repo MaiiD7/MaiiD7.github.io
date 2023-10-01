@@ -2,8 +2,9 @@ import styled from "styled-components";
 import logo from "../assets/logo.png";
 import maleUser from "../assets/maleUser.png";
 import femaleUser from "../assets/femaleUser.png";
-import { data } from "../assets/mockedData";
 import { Link } from "react-router-dom";
+import { useFetchLoginUsersInfo } from "../useDataManager";
+import Loader from "react-spinner-loader";
 
 const LoginContainer = styled.div`
   max-height: 100%;
@@ -16,14 +17,14 @@ const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #020203;
-`
+`;
 
 const Users = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 100px;
-`
+`;
 
 const UserCard = styled.div`
   display: flex;
@@ -34,46 +35,66 @@ const UserCard = styled.div`
   height: 300px;
   background-color: #161621;
   border-radius: 20px;
-  border: 2px solid red;
+  border: 1px solid white;
   cursor: pointer;
-`
+  &:hover {
+    border: 1px solid red;
+  }
+`;
 
 const UserName = styled.p`
   color: white;
   font-size: 24px;
   font-weight: 500;
-`
+`;
 
 const Login = () => {
 
-  const femaleName = `${data.user18.userInfos.firstName} ${data.user18.userInfos.lastName}`
-  const femaleId = data.user18.id
+  const {userInfos, loading, error } = useFetchLoginUsersInfo();
 
-  const maleName = `${data.user12.userInfos.firstName} ${data.user12.userInfos.lastName}`
-  const maleId = data.user12.id
+  if(loading) {
+    return <Loader show={loading} type="box" message="Chargement en cours" />
+  }
+
+  if (!userInfos?.length) {
+    return null
+  }
+
+  const femaleName = `${userInfos[0].firstname} ${userInfos[0].lastname}`;
+  const femaleId = userInfos[0].id;
+
+  const maleName = `${userInfos[1].firstname} ${userInfos[1].lastname}`;
+  const maleId = userInfos[1].id;
 
   return (
     <LoginContainer>
       <a href="/">
-        <img src={logo} alt="logo-sportsee" style={{height: '100px'}}/>
+        <img src={logo} alt="logo-sportsee" style={{ height: "100px" }} />
       </a>
       <Users>
-        <Link to={`/dashboard/${femaleId}`} style={{textDecoration: 'none'}}>
+        <Link to={`/dashboard/${femaleId}`} style={{ textDecoration: "none" }}>
           <UserCard>
-            <img src={femaleUser} alt="logo-sportsee" style={{height: '100px'}}/>
+            <img
+              src={femaleUser}
+              alt="logo-sportsee"
+              style={{ height: "100px" }}
+            />
             <UserName>{femaleName}</UserName>
           </UserCard>
         </Link>
-        <Link to={`/dashboard/${maleId}`} style={{textDecoration: 'none'}}>
+        <Link to={`/dashboard/${maleId}`} style={{ textDecoration: "none" }}>
           <UserCard>
-            <img src={maleUser} alt="logo-sportsee" style={{height: '100px'}}/>
+            <img
+              src={maleUser}
+              alt="logo-sportsee"
+              style={{ height: "100px" }}
+            />
             <UserName>{maleName}</UserName>
           </UserCard>
         </Link>
       </Users>
     </LoginContainer>
-      
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
