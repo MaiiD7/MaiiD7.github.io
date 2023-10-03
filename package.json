@@ -16,7 +16,8 @@
     "react-router-dom": "^6.16.0",
     "react-spinner-loader": "^1.1.1",
     "recharts": "^2.8.0",
-    "styled-components": "^6.0.8"
+    "styled-components": "^6.0.8",
+    "styled-components-breakpoint": "^3.0.0-preview.20"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

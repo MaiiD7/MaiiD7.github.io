@@ -62,6 +62,10 @@ export const useFetchCurrentUsersInfo = (id) => {
   const [rawData, setRawData] = useState([]);
   const [firstName, setFirstName] = useState('');
   const [userKeyData, setUserKeyData] = useState([]);
+  const [score, setScore] = useState(0);
+  const [performance, setPerformance] = useState([]);
+  const [sessions, setSessions] = useState([]);
+  const [activity, setActivity] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -90,9 +94,68 @@ export const useFetchCurrentUsersInfo = (id) => {
   
   useEffect(() => {
     if (rawData.length) {
+
       setFirstName(rawData[0].userInfos.firstName);
+      console.log(rawData[1]);
+
+      setScore([{
+        "name": "Score",
+        "score": rawData[0].todayScore ? rawData[0].todayScore : rawData[0].score,
+        "fill": "#FF0000"
+      }]);
+
+      setActivity(rawData[1].sessions.map((session, index) => (
+        {
+          "day": index+1,
+          "Poids (kg)": session.kilogram,
+          "Calories brûlées (kCal)": session.calories
+        }
+      )))
+
+      const weekDays = ["L","M","M","J","V","S","D"];
+      setSessions(rawData[2].sessions.map((session, index) => (
+        {
+          "day": weekDays[index],
+          "time": session.sessionLength
+        }
+      )))
+
+      setPerformance([
+        {
+          "subject": "Intensité",
+          "A": rawData[3].data[5].value,
+          "fullMark": 250
+        },
+        {
+          "subject": "Vitesse",
+          "A": rawData[3].data[4].value,
+          "fullMark": 250
+        },
+        {
+          "subject": "Force",
+          "A": rawData[3].data[3].value,
+          "fullMark": 250
+        },
+        {
+          "subject": "Endurance",
+          "A": rawData[3].data[2].value,
+          "fullMark": 250
+        },
+        {
+          "subject": "Energie",
+          "A": rawData[3].data[1].value,
+          "fullMark": 250
+        },
+        {
+          "subject": "Cardio",
+          "A": rawData[3].data[0].value,
+          "fullMark": 250
+        }
+      ])
+
       rawData[0].keyData.calorieCount = rawData[0].keyData.calorieCount.toString();
       rawData[0].keyData.calorieCount = rawData[0].keyData.calorieCount.slice(0,1) + ',' + rawData[0].keyData.calorieCount.slice(1,rawData[0].keyData.calorieCount.length);
+      
       
       setUserKeyData([
         {
@@ -129,6 +192,6 @@ export const useFetchCurrentUsersInfo = (id) => {
     }
   }, [rawData]);
 
-  return {rawData, firstName, userKeyData, loading, error}
+  return {rawData, firstName, userKeyData, score, performance, sessions, activity, loading, error}
 
 }
