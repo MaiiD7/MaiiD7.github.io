@@ -31,7 +31,7 @@ const NavIcon = styled.a`
 const Copyright = styled.div`
   position: absolute;
   bottom: 70px;
-  left: 0px;
+  lineHeight: 0;
   width: fit-content;
   white-space: nowrap;
   color: white;

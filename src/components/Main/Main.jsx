@@ -14,7 +14,7 @@ const MainContainer = styled.div`
     padding: 30px 3%;
   `}
   ${breakpoint('xl')`
-    padding: 30px 16%;
+    padding: 30px 13%;
   `}
 `
 

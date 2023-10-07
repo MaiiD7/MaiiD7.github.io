@@ -96,7 +96,6 @@ export const useFetchCurrentUsersInfo = (id) => {
     if (rawData.length) {
 
       setFirstName(rawData[0].userInfos.firstName);
-      console.log(rawData[1]);
 
       setScore([{
         "name": "Score",
@@ -113,12 +112,23 @@ export const useFetchCurrentUsersInfo = (id) => {
       )))
 
       const weekDays = ["L","M","M","J","V","S","D"];
-      setSessions(rawData[2].sessions.map((session, index) => (
+      const tempData = rawData[2].sessions.map((session, index) => (
         {
           "day": weekDays[index],
           "time": session.sessionLength
         }
-      )))
+      ))
+      setSessions([
+        {
+          "day": "",
+          "time": tempData[0].time
+        },
+        ...tempData,
+        {
+          "day": "",
+          "time": tempData[tempData.length-1].time
+        }
+      ]   )
 
       setPerformance([
         {

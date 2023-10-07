@@ -18,6 +18,7 @@ const MainChartsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 30px;
   height: 100%;
   width: 72%;
 `
@@ -25,6 +26,7 @@ const MainChartsContainer = styled.div`
 const ChartsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: bottom
   height: 40%;
   width: 100%;
 `
@@ -67,7 +69,7 @@ const MainSection = (props) => {
         <ActivityBarChart activity={activity} />
         
         <ChartsContainer>
-          <SmallChartsContainer style={{backgroundColor: '#FF0000'}}>
+          <SmallChartsContainer style={{background: 'linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 69%, rgba(232,16,16,1) 69%, rgba(232,16,16,1) 100%)'}}>
             <AverageSessionChart sessions={sessions} />
           </SmallChartsContainer>
 
