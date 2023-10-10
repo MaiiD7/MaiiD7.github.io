@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Header from "../Header/Header";
 import MainSection from "../MainSection/MainSection";
-import { data } from "../../assets/mockedData";
 import breakpoint from 'styled-components-breakpoint';
 
 const MainContainer = styled.div`
