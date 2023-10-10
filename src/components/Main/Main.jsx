@@ -18,6 +18,8 @@ const MainContainer = styled.div`
   `}
 `
 
+// Main component corresponding to the dashboard page content (navigation bars aside).
+// Contains the Header and the MainSection with all the charts
 const Main = (props) => {
   const { firstName, userKeyData, score, performance, sessions, activity } = props;
 

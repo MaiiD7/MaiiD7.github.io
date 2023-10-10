@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import Login from './pages/Login';
 import DashBoard from './pages/Dashboard';
 
+// Breakpoints used in the whole project
 const theme = {
   breakpoints: {
     xs: 0,
@@ -22,8 +23,9 @@ root.render(
     <Router>
       <ThemeProvider theme={theme}>
         <Routes>
-          {/* Add Login page and parameters to dashboard route later */}
+          {/* Login Page Route */}
           <Route path='/' element={<Login />} />
+          {/* Dashborad route with a parameter corresponding to the curretn user id */}
           <Route path='/dashboard/:userId' element={<DashBoard />} />
         </Routes>
       </ThemeProvider>

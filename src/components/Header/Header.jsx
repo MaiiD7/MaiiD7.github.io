@@ -5,7 +5,9 @@ const Container = styled.div`
   height: 130px;
 `
 
+// Component to display the header of the DashBoard Page
 const Header = (props) => {
+  // Only needs the user firstName passed as props
   const { firstName } = props;
 
   return (

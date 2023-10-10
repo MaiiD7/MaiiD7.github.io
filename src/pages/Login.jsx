@@ -48,10 +48,14 @@ const UserName = styled.p`
   font-weight: 500;
 `;
 
+// Component returning the Login Page
 const Login = () => {
 
+  // Call a method to fetch the formatted data used in the page
   const {userInfos, loading, error } = useFetchLoginUsersInfo();
 
+  // Loading spinner if th e fetch is not finished yet
+  // In our simple case the fetch is too fast to actually notice it
   if(loading) {
     return <Loader show={loading} type="box" message="Chargement en cours" />
   }
@@ -66,6 +70,8 @@ const Login = () => {
   const maleName = `${userInfos[1].firstname} ${userInfos[1].lastname}`;
   const maleId = userInfos[1].id;
 
+  // Return the two cards with the users data
+  // Each Card links to the Dashboard Page with the user id as a parameter
   return (
     <LoginContainer>
       <a href="/">

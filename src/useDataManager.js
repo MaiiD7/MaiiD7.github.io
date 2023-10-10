@@ -6,6 +6,8 @@ import chickenIcon from "./assets/icons/chicken.png";
 import appleIcon from "./assets/icons/apple.png";
 import cheeseburgerIcon from "./assets/icons/cheeseburger.png";
 
+// Method to fetch and format the users data from the API
+// For the Login Page
 export const useFetchLoginUsersInfo = () => {
   // Defining states
   const [users, setUsers] = useState([]);
@@ -22,7 +24,7 @@ export const useFetchLoginUsersInfo = () => {
   // Requests made by axios.all()
   const requests = urls.map((url) => axios.get(url));
   
-    
+  // useEffect to call requests and save data in state "users"
   useEffect(() => {
     setLoading(true);
     axios.all(requests).then((responses) => {
@@ -34,6 +36,7 @@ export const useFetchLoginUsersInfo = () => {
     }).catch(() => setError(true))
   }, []);
   
+  // useEffect to format the users data into an array of 2 objects : "userInfos"
   useEffect(() => {
     if (users.length) {
       setUserInfos([
@@ -55,7 +58,9 @@ export const useFetchLoginUsersInfo = () => {
   return {userInfos, loading, error}
 
 }
-  
+
+// Method to fetch and format the selected user data
+// Called when the Dashboard Page is loaded
 export const useFetchCurrentUsersInfo = (id) => {
 
   // Defining states
@@ -80,7 +85,7 @@ export const useFetchCurrentUsersInfo = (id) => {
   // Requests made by axios.all()
   const requests = urls.map((url) => axios.get(url));
   
-    
+  // useEffect to call requests and save data in state "rawData"
   useEffect(() => {
     setLoading(true);
     axios.all(requests).then((responses) => {
@@ -92,17 +97,15 @@ export const useFetchCurrentUsersInfo = (id) => {
     }).catch(() => setError(true))
   }, []);
   
+  // useEffect to format the selected user data
+  // To meet the needs of the different components
   useEffect(() => {
     if (rawData.length) {
 
+      // For Header Component
       setFirstName(rawData[0].userInfos.firstName);
 
-      setScore([{
-        "name": "Score",
-        "score": rawData[0].todayScore ? rawData[0].todayScore : rawData[0].score,
-        "fill": "#FF0000"
-      }]);
-
+      // For ActivityBarChart Component
       setActivity(rawData[1].sessions.map((session, index) => (
         {
           "day": index+1,
@@ -118,6 +121,8 @@ export const useFetchCurrentUsersInfo = (id) => {
           "time": session.sessionLength
         }
       ))
+
+      // For AverageSessionChart Component
       setSessions([
         {
           "day": "",
@@ -130,6 +135,7 @@ export const useFetchCurrentUsersInfo = (id) => {
         }
       ]   )
 
+      // For PerformanceChart Component
       setPerformance([
         {
           "subject": "Intensité",
@@ -163,10 +169,17 @@ export const useFetchCurrentUsersInfo = (id) => {
         }
       ])
 
+      // For ScoreChart Component
+      setScore([{
+        "name": "Score",
+        "score": rawData[0].todayScore ? rawData[0].todayScore : rawData[0].score,
+        "fill": "#FF0000"
+      }]);
+
       rawData[0].keyData.calorieCount = rawData[0].keyData.calorieCount.toString();
       rawData[0].keyData.calorieCount = rawData[0].keyData.calorieCount.slice(0,1) + ',' + rawData[0].keyData.calorieCount.slice(1,rawData[0].keyData.calorieCount.length);
       
-      
+      // For KeyData Component
       setUserKeyData([
         {
           icon: energyIcon,

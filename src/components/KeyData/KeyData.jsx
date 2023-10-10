@@ -25,11 +25,14 @@ const IconCard = styled.div`
   align-items: center;
 `
 
+// Component to display the key data on the right side of the dashboard
 const KeyData = (props) => {
+  // Array containing the formatted data (icon, count, units, element and  color for each set)
   const { userKeyData } = props;
 
   return (
     <KeyDataContainer>
+      {/* Iteration on the data Array to display the 4 KeyDataCards */}
       {userKeyData.map((keyData) => (
         <KeyDataCard key={keyData.element}>
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 20px', gap: '20px'}}>

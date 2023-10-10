@@ -39,11 +39,13 @@ const Copyright = styled.div`
   font-weight: 300;
   transform: rotate(-90deg);
 `
-
+// Import icons from the ./assets in an array
 const icons = [meditation, swim, bike, weight];
 
+// Component to display the Top Navigation Bar
 const LeftNavigation = () => (
   <LeftBar>
+    {/* iteration on the icons array to create the 4 NavIcons */}
     {icons.map((icon, index) => (
       <NavIcon key={`icon_${index}`}>
         <img src={icon} alt={`icon_${index}`} style={{width: '30px'}}/>

@@ -56,9 +56,11 @@ const ScoreInfosContainer = styled.div`
   align-items: center;
   flex-direction: column;
 `
-
+// Main section to display the charts and the key data
 const MainSection = (props) => {
 
+  // Gets most of the formatted data as props
+  // To distribute it amongst all the key data and chart components
   const { userKeyData, score, performance, sessions, activity } = props;
 
   return (
@@ -66,17 +68,22 @@ const MainSection = (props) => {
 
       <MainChartsContainer>
 
+        {/* Bar Chart Component (Activity) */}
         <ActivityBarChart activity={activity} />
         
         <ChartsContainer>
+
+          {/* Line Chart Component (Average Session) */}
           <SmallChartsContainer style={{background: 'linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 69%, rgba(232,16,16,1) 69%, rgba(232,16,16,1) 100%)'}}>
             <AverageSessionChart sessions={sessions} />
           </SmallChartsContainer>
 
+          {/* Radar Chart Component (Performance) */}
           <SmallChartsContainer style={{backgroundColor: '#282D30'}}>
             <PerformanceChart performance={performance}/>
           </SmallChartsContainer>
 
+          {/* Radial Bar Chart (Score) */}
           <SmallChartsContainer style={{backgroundColor: '#FBFBFB', position: 'relative'}}>
             <ScoreChart score={score}/>
             <ScoreInfosContainer>
@@ -84,10 +91,12 @@ const MainSection = (props) => {
               <p style={{lineHeight: 1,fontSize: '10px', fontWeight: 600, color: '#74798C'}}>de votre objectif</p>
             </ScoreInfosContainer>
           </SmallChartsContainer>
+
         </ChartsContainer>
 
       </MainChartsContainer>
 
+      {/* Key Data Component */}
       <KeyData userKeyData={userKeyData} />
 
     </Container>

@@ -27,6 +27,7 @@ const NavBarLink = styled.a`
   cursor: pointer;
 `
 
+// Component to display the Top Navigation Bar
 const TopNavigation = () => (
     <TopBar>
       <a href="/">
